@@ -2,7 +2,7 @@ import { CreateArticleDto } from './article.dto';
 import { Article } from './article.entity';
 export declare class ArticleService {
     private readonly repository;
-    paginateArticles(limit: any, page: any): Promise<Article[]>;
+    paginateArticles(country: any, limit: any, page: any): Promise<Article[]>;
     getAllArticle(): Promise<Article[]>;
     getArticle(id: any): Promise<Article>;
     createArticle(body: CreateArticleDto): Promise<Article>;

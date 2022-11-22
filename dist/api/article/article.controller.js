@@ -16,8 +16,8 @@ exports.ArticleController = void 0;
 const common_1 = require("@nestjs/common");
 const article_service_1 = require("./article.service");
 let ArticleController = class ArticleController {
-    paginateArticles(limit, page) {
-        return this.service.paginateArticles(limit, page);
+    paginateArticles(country, limit, page) {
+        return this.service.paginateArticles(country, limit, page);
     }
 };
 __decorate([
@@ -25,11 +25,12 @@ __decorate([
     __metadata("design:type", article_service_1.ArticleService)
 ], ArticleController.prototype, "service", void 0);
 __decorate([
-    (0, common_1.Get)('paginate/:limit/:page'),
-    __param(0, (0, common_1.Param)('limit', common_1.ParseIntPipe)),
-    __param(1, (0, common_1.Param)('page', common_1.ParseIntPipe)),
+    (0, common_1.Get)('paginate/:country/:limit/:page'),
+    __param(0, (0, common_1.Param)('country')),
+    __param(1, (0, common_1.Param)('limit', common_1.ParseIntPipe)),
+    __param(2, (0, common_1.Param)('page', common_1.ParseIntPipe)),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number, Number]),
+    __metadata("design:paramtypes", [Object, Number, Number]),
     __metadata("design:returntype", Promise)
 ], ArticleController.prototype, "paginateArticles", null);
 ArticleController = __decorate([

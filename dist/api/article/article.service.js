@@ -17,8 +17,9 @@ const article_entity_1 = require("./article.entity");
 const async = require("async");
 const axios = require("axios");
 let ArticleService = class ArticleService {
-    paginateArticles(limit, page) {
+    paginateArticles(country, limit, page) {
         return this.repository.find({
+            where: { country: country },
             order: { 'articleDate': 'DESC' },
             take: limit,
             skip: limit * page

@@ -14,8 +14,9 @@ export class ArticleService {
     @InjectRepository(Article)
     private readonly repository: Repository<Article>;
 
-    public paginateArticles(limit, page): Promise<Article[]> {
+    public paginateArticles(country, limit, page): Promise<Article[]> {
         return this.repository.find({
+            where: { country: country },
             order: { 'articleDate': 'DESC' },
             take: limit,
             skip: limit * page

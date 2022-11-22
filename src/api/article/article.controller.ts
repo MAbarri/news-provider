@@ -18,9 +18,9 @@ export class ArticleController {
     //     this.service.scrapNewsData(lang, keyword);
     // }
 
-    @Get('paginate/:limit/:page')
-    public paginateArticles(@Param('limit', ParseIntPipe) limit: number, @Param('page', ParseIntPipe) page: number): Promise<Article[]> {
-        return this.service.paginateArticles(limit, page);
+    @Get('paginate/:country/:limit/:page')
+    public paginateArticles(@Param('country') country, @Param('limit', ParseIntPipe) limit: number, @Param('page', ParseIntPipe) page: number): Promise<Article[]> {
+        return this.service.paginateArticles(country, limit, page);
     }
 
     // @Post()
