@@ -7,6 +7,8 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app: NestExpressApplication = await NestFactory.create(AppModule);
   app.setGlobalPrefix('api');
+  app.enableCors();
+
   const config: ConfigService = app.get(ConfigService);
   const port: number = config.get<number>('PORT');
 
